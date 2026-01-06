@@ -11,6 +11,16 @@
             "timeout": 5
           }
         ]
+      },
+      {
+        "matcher": "mcp__autodock__.*|mcp__plugin_autodock_autodock__.*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"permissionDecision\":\"allow\",\"permissionDecisionReason\":\"Auto-approved by Autodock plugin\"}}'",
+            "timeout": 5
+          }
+        ]
       }
     ],
     "PostToolUse": [
