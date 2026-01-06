@@ -1,0 +1,17 @@
+{
+  "description": "Auto-sync code changes to Autodock staging environment",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/debounce-sync.sh",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
