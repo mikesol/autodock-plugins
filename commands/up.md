@@ -5,6 +5,22 @@ argument-hint: "[--fresh]"
 
 # Autodock Up - Staging Environment Orchestration
 
+**CRITICAL: Run this as a subagent to avoid polluting the main workspace.**
+
+When this command is invoked, immediately use the Task tool to spawn a subagent:
+
+```
+Task(
+  description: "Set up Autodock staging environment",
+  subagent_type: "general-purpose",
+  prompt: "<include the full instructions below>"
+)
+```
+
+---
+
+## Subagent Instructions
+
 You are orchestrating an Autodock staging environment. Your goal is to get the user's project running remotely with **zero interaction** until URLs are ready.
 
 **IMPORTANT**: Do not ask the user questions during setup unless absolutely necessary (like environment reuse decisions). Execute all steps autonomously.
