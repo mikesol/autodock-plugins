@@ -5,7 +5,7 @@ One command to provision, sync, and expose a complete staging environment.
 ## Features
 
 - **One-command setup**: `/autodock:up` provisions a complete staging environment
-- **Zero interaction**: No prompts until your URLs are ready
+- **Low friction**: Works in the background until your app's URLs are ready
 - **Auto-sync**: Changes are automatically synced after file edits (with debouncing)
 - **Smart .env handling**: Automatically patches URLs for remote development
 - **Environment reuse**: Reuse existing environments or create fresh ones
