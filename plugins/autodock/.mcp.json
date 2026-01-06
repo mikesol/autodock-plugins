@@ -1,8 +1,6 @@
 {
-  "mcpServers": {
-    "autodock": {
-      "type": "http",
-      "url": "https://autodock.io/api/mcp/streamable-http"
-    }
+  "autodock": {
+    "type": "http",
+    "url": "https://autodock.io/api/mcp/streamable-http"
   }
 }
