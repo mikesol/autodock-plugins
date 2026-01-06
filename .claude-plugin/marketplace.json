@@ -10,7 +10,7 @@
   "plugins": [
     {
       "name": "autodock",
-      "source": "./",
+      "source": "./plugins/autodock",
       "description": "Automatic staging environment management for Autodock. One command to provision, sync, and expose a complete staging environment.",
       "version": "1.0.0"
     }
