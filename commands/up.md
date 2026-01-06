@@ -5,27 +5,27 @@ argument-hint: "[--fresh]"
 
 # Autodock Up
 
-**CRITICAL INSTRUCTIONS - FOLLOW EXACTLY:**
+## Step 1: Check Authentication
 
-1. **Invoke the `staging` agent AS A BACKGROUND TASK** - use `run_in_background: true`
-2. **DO NOT block waiting for the agent** - never use blocking TaskOutput
-3. **When checking status, ALWAYS use non-blocking TaskOutput** - `block: false`
+Call `mcp__autodock__account_info` to verify the user is authenticated.
 
-After starting the background agent, tell the user:
-- The staging environment setup is running in the background
-- They can continue working while it runs
-- Ask anytime to check progress (you'll use non-blocking TaskOutput)
-- You'll let them know when it completes
+**If the call fails or returns an auth error:**
+- Tell the user: "The Autodock MCP server needs authentication. Please run `/mcp`, select the `autodock` server, and press Enter to log in. Then try `/autodock:up` again."
+- STOP here - do not proceed to Step 2
 
-Pass to the agent:
-- Arguments: $ARGUMENTS (includes --fresh flag if provided)
+**If auth succeeds (returns user info):**
+- Proceed to Step 2
+
+## Step 2: Launch Background Agent
+
+1. Invoke the `staging` agent with `run_in_background: true`
+2. Never use blocking TaskOutput - always use `block: false`
+
+Tell the user:
+- Setup is running in the background
+- They can continue working
+- Ask anytime to check progress
+
+Pass to agent:
+- Arguments: $ARGUMENTS
 - Working directory context
-
-The staging agent handles everything autonomously:
-- Environment reuse/launch
-- Technology detection
-- Code sync and .env patching
-- Dependency installation
-- Service startup
-- Port exposure
-- Final URL reporting
