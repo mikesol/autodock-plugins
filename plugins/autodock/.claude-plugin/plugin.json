@@ -1,6 +1,6 @@
 {
   "name": "autodock",
-  "version": "1.0.0-19817db",
+  "version": "1.0.0-359a485",
   "description": "Automatic staging environment management for Autodock. One command to provision, sync, and expose a complete staging environment.",
   "author": {
     "name": "Autodock",
