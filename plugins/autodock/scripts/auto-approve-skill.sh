@@ -2,7 +2,7 @@
 # auto-approve-skill.sh - PreToolUse hook to auto-approve Autodock skill calls
 #
 # This hook receives tool input via stdin and outputs JSON to approve/deny.
-# It auto-approves Skill calls that invoke autodock skills.
+# It auto-approves Skill calls that invoke specific autodock skills.
 
 set -e
 
@@ -12,9 +12,10 @@ INPUT=$(cat)
 # Extract skill name from input
 SKILL=$(echo "$INPUT" | jq -r '.tool_input.skill // empty')
 
-# Only approve autodock-related skills
-if [[ "$SKILL" =~ ^autodock ]]; then
-    cat << 'EOF'
+# Only approve specific autodock skills
+case "$SKILL" in
+    autodock:up|autodock:down|autodock:status|autodock:sync)
+        cat << 'EOF'
 {
   "hookSpecificOutput": {
     "hookEventName": "PreToolUse",
@@ -23,8 +24,9 @@ if [[ "$SKILL" =~ ^autodock ]]; then
   }
 }
 EOF
-    exit 0
-fi
+        exit 0
+        ;;
+esac
 
 # For non-autodock skills, don't interfere
 exit 0
