@@ -14,7 +14,7 @@ SKILL=$(echo "$INPUT" | jq -r '.tool_input.skill // empty')
 
 # Only approve specific autodock skills
 case "$SKILL" in
-    autodock:up|autodock:down|autodock:status|autodock:sync)
+    autodock:up|autodock:down|autodock:status|autodock:sync|autodock:test)
         cat << 'EOF'
 {
   "hookSpecificOutput": {

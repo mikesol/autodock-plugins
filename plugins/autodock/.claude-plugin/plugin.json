@@ -1,6 +1,6 @@
 {
   "name": "autodock",
-  "version": "1.0.0-c0ee064",
+  "version": "1.1.0",
   "description": "Automatic staging environment management for Autodock. One command to provision, sync, and expose a complete staging environment.",
   "author": {
     "name": "Autodock",
@@ -9,5 +9,5 @@
   "homepage": "https://autodock.io",
   "repository": "https://github.com/autodock/autodock-plugin",
   "license": "MIT",
-  "keywords": ["staging", "preview", "deployment", "autodock", "cloud", "remote-dev", "sync"]
+  "keywords": ["staging", "preview", "deployment", "autodock", "cloud", "remote-dev", "sync", "testing", "e2e"]
 }
